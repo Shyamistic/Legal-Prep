@@ -34,3 +34,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# secrets: never commit real env files (the example file is allowed)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# scratch
+*.tmp.js
+*.tmp.ps1
+*.out.txt
+scratch/

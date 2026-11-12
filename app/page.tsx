@@ -1,101 +1,77 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Camera, BellRing, Gavel, LineChart, Map } from "lucide-react";
+import { linkButtonClasses } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { WaitlistForm } from "@/components/waitlist-form";
+
+const steps = [
+  { icon: Map, title: "Walk through the courtroom.", body: "A guided tour of the room, so you know who is who and where to sit." },
+  { icon: Gavel, title: "Start a session.", body: "Begin a hearing with our digital judge, and, where it helps, a participant from the other side." },
+  { icon: Camera, title: "Turn on your camera, when you feel ready.", body: "Only enable your camera if you feel ready. It is just so we can help you practise holding strong, steady eye contact." },
+  { icon: LineChart, title: "See feedback on your delivery.", body: "How your delivery came across, on pace, clarity and composure. Never on what you should say." },
+  { icon: BellRing, title: "Receive reminders before the day.", body: "Simple reminders of what to have in mind before the hearing, so nothing important slips on the day." },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <section className="grid items-center gap-10 pb-16 pt-10 md:grid-cols-[1.2fr_1fr] md:pt-16">
+        <div className="animate-fadeUp">
+          <p className="mb-5 text-xs uppercase tracking-[0.22em] text-brass-400">
+            LegalPrep · Virtual courtroom · England &amp; Wales
+          </p>
+          <h1 className="font-serif text-4xl leading-[1.1] md:text-6xl">Familiarise yourself with a hearing.</h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-parchment-200">
+            A virtual courtroom with a digital judge. Practice your delivery, get feedback on your pace, and
+            build composure.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Link href="/prep" className={linkButtonClasses("primary", "lg")}>
+              Enter the Prep Room <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+            <Link href="/tour" className={linkButtonClasses("ghost", "lg")}>Take the tour first</Link>
+          </div>
+          <div className="mt-10">
+            <p className="mb-3 text-sm text-parchment-400">Or get a note when the full courtroom is ready:</p>
+            <WaitlistForm />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <Card className="relative overflow-hidden p-8">
+          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brass-400/10 blur-2xl" aria-hidden />
+          <p className="font-serif text-2xl leading-snug text-parchment-50">
+            &ldquo;Familiarity makes space for composure.&rdquo;
+          </p>
+          <p className="mt-5 text-sm leading-relaxed text-parchment-200">
+            We built it so that sharing your story will not feel so frightening, once you have a sense of what
+            a hearing may feel like.
+          </p>
+          <ul className="mt-6 space-y-2 text-sm text-parchment-200">
+            <li>• No legal advice. Ever.</li>
+            <li>• Your papers stay in your browser&apos;s memory.</li>
+            <li>• Feedback on delivery, never on content.</li>
+          </ul>
+        </Card>
+      </section>
+
+      <section aria-labelledby="how" className="py-10">
+        <p className="text-xs uppercase tracking-[0.22em] text-brass-400">Product · See it in action</p>
+        <h2 id="how" className="mt-2 font-serif text-3xl md:text-4xl">How it works.</h2>
+        <ol className="mt-8 grid gap-4 md:grid-cols-5">
+          {steps.map((s, i) => (
+            <li key={s.title}>
+              <Card className="h-full p-5">
+                <div className="mb-4 flex items-center justify-between text-brass-400">
+                  <s.icon className="h-5 w-5" aria-hidden />
+                  <span className="font-serif text-sm text-parchment-400">0{i + 1}</span>
+                </div>
+                <h3 className="font-serif text-lg leading-snug">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-parchment-200">{s.body}</p>
+              </Card>
+            </li>
+          ))}
+        </ol>
+      </section>
+    </>
   );
 }
